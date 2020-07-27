@@ -15,39 +15,5 @@ if(empty($_POST['email']) OR empty($_POST['senha'])){
 
 }
 
-//----------------------------------------------------------------------------------
-
-    $sql = 'insert into usuarios(email,senha) values(?,?)';
-    $prepare = $pdo->prepare($sql);
-
-    $prepare->bindParam(1, $email);
-    $prepare->bindParam(2, $senha);
-
-    $prepare->execute();
-
-    echo $prepare->rowCount();
-    echo setSucesso("Usuario cadastrado");
-    header('location:listarUsuario.php');
-    return;
-// ------------------------------------------------------------------------------
-
-    $sql = 'update into usuarios set email = ?, senha = ? where id = ?';
-    $prepare = $pdo->prepare($sql);
-
-    $prepare->bindParam(1, $email);
-    $prepare->bindParam(2, $senha);
-    $prepare->bindParam(3, $_POST['id']);
-
-    $prepare->execute();
-
-    echo $prepare->rowCount();
-    echo setSucesso("Usuario cadastrado");
-    header('location:listarUsuario.php');
-    return;
-
-
-// ---------------------------------------------------------------------------------
-
-
 
 
